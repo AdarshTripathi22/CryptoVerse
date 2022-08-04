@@ -7,6 +7,7 @@ import LineChart from './LineChart'
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 
 import { Col, Row, Typography, Select } from "antd"
+import Loader from "./Loader"
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
@@ -23,7 +24,7 @@ const CryptoDetails = () => {
   const cryptoDetails = data?.data.coin;
   console.log(cryptoDetails)
 
-  if(isFetching) return "isLoading...";
+  if(isFetching) return <Loader />;
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
